@@ -14,3 +14,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('login', 'UserController@authenticate');
+    $router->get('logout', 'UserController@deauth');
+    $router->post('checklists', 'ChecklistController@create');
+    $router->post('checklists/complete', 'ChecklistController@index');
+    $router->post('checklists/incomplete', 'ChecklistController@incomplete');
+    $router->delete('checklists/{checklistId}', 'ChecklistController@delete');
+});

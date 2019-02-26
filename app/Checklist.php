@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+class Checklist extends Model implements AuthenticatableContract, AuthorizableContract
 {
     use Authenticatable, Authorizable;
 
@@ -18,7 +18,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'username', 'password',
+        'object_domain', 
+        'object_id',
+        'description',
+        'is_completed',
+        'completed_at',
+        'updated_by',
+        'due',
+        'urgency',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -26,9 +35,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-    ];
+    protected $hidden = [];
 
-    protected $table = 'user';
+    protected $table = 'checklist';
 }

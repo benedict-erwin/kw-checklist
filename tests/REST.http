@@ -1,0 +1,69 @@
+### login
+GET http://192.168.33.10:8080/api/login?username=erwin&password=erwin HTTP/1.1
+
+### logout
+GET http://192.168.33.10:8080/api/logout HTTP/1.1
+Authorization: bearier 23e00ea82637ce3636c5ad83949ebfb909ef93f1f8ef3eb6784e0950ed5909d220c669d3b9a6a6f1ea4732d6df3a4c06e5b9a620a781ff444d26186a4b34d0db
+
+### Complete
+POST  http://192.168.33.10:8080/api/checklists/complete HTTP/1.1
+Authorization: bearier 4008dd3c43195224110a132823f83ee09eb512b5ebe7f6b44cb36ff584919429a517ea8c30957eee94865effbe27f30e39126c763f89278f0168cff5ed6f8108
+Content-Type: application/json
+
+{
+  "data": [
+    {
+      "item_id": 1
+    },
+    {
+      "item_id": 2
+    },
+    {
+      "item_id": 3
+    },
+    {
+      "item_id": 4
+    }
+  ]
+}
+
+### Checklist Create
+POST  http://192.168.33.10:8080/api/checklists HTTP/1.1
+Authorization: bearier 4008dd3c43195224110a132823f83ee09eb512b5ebe7f6b44cb36ff584919429a517ea8c30957eee94865effbe27f30e39126c763f89278f0168cff5ed6f8108
+Content-Type: application/json
+
+{
+  "data": {
+    "attributes": {
+      "object_domain": "contact",
+      "object_id": "1",
+      "due": "2019-01-25T07:50:14+00:00",
+      "urgency": 1,
+      "description": "Need to verify this guy house.",
+      "items": [
+        "Visit his house",
+        "Capture a photo",
+        "Meet him on the house"
+      ]
+    }
+  }
+}
+
+### Checklist Delete
+DELETE   http://192.168.33.10:8080/api/checklists/5 HTTP/1.1
+Authorization: bearier 4008dd3c43195224110a132823f83ee09eb512b5ebe7f6b44cb36ff584919429a517ea8c30957eee94865effbe27f30e39126c763f89278f0168cff5ed6f8108
+
+
+### Item Create
+POST  http://192.168.33.10:8080/api/checklists HTTP/1.1
+Authorization: bearier 4008dd3c43195224110a132823f83ee09eb512b5ebe7f6b44cb36ff584919429a517ea8c30957eee94865effbe27f30e39126c763f89278f0168cff5ed6f8108
+Content-Type: application/json
+{
+  "data": {
+    "attribute": {
+      "description": "Need to verify this guy house.",
+      "due": "2019-01-19 18:34:51",
+      "urgency": "2"
+    }
+  }
+}
